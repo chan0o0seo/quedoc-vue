@@ -220,5 +220,6 @@ fieldset {
 @media only screen and (max-width: 960px) {
   .header {
     padding: 1.4rem 2.4rem;
+    height: 10rem;
   }
 }

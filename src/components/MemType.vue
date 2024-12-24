@@ -75,12 +75,11 @@ const usertype = ref('')
 const submitForm = () => {
     //개인회원
     if (usertype.value == 'memPsn') {
+        usertype.value = 'memPsn'
         router.push({ name: usertype.value })
         //개인사업자 회원
     } else if (usertype.value == 'memPsnEtk') {
-        router.push({ name: usertype.value })
-        //법인사업자 회원
-    } else if (usertype.value == 'memCrpEtk') {
+        usertype.value = 'memPsn'
         router.push({ name: usertype.value })
     } else {
         return false
