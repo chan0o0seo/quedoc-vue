@@ -1,0 +1,114 @@
+/* Main search wrap */
+.main-wrap .main-search-wrap .main-search-inner {
+    margin: 3.2rem auto 0;
+    display: flex;
+    padding: 3.2rem 0 2.4rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 120rem;
+    border-radius: 2.4rem;
+    background: #356cff;
+}
+.main-wrap .main-search-wrap .input-wrap {
+    position: relative;
+    width: 100%;
+    max-width: 79.2em;
+}
+.main-wrap .main-search-wrap .input-wrap .v-input, .main-wrap .main-search-wrap .input-wrap .v-input__control {
+    width: 100%;
+    background-color: #fff!important;
+    border-radius: 100rem;
+}
+.v-input--density-default:not(.v-autocomplete--multiple), .v-field--variant-solo, .v-field--variant-filled {
+    --v-input-control-height: 2.4375rem;
+    --v-input-padding-top: .125rem;
+}
+.main-wrap .main-search-wrap .input-wrap .v-btn.btn-search {
+    right: 3.2rem;
+}
+.v-btn.v-btn--size-default {
+    --v-btn-size: 1.4rem;
+}
+.v-btn.btn-search {
+    all: unset;
+    overflow: hidden;
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 1.6rem;
+    width: 3.2rem;
+    height: 3.2rem;
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAUeSURBVHgB7VpNbhs3FP44koygLVr1BLVPEBmN0+4qn6DuCRzvisaF1RNEPkFt1Cm6S3ICuyewvDPiBFFOkOQGys7wSMO8N5ECR+DjkBRnJCj6AMHWcDRDfnz/fMAKK6ywwgpfLhRKRKujm8kIOzXgrtJY1xotrdCklzY/3aTxlmbBnz5GeJ1m6PX/U29REaITwIteG+JAA218/ISgjwzHVZARjYDJwjOg89kOzwqFp2mKw7KIiELA/X39KPrCp0DP7j4/UYeIjJkIaP2u1xt1nPK/qAJkL9IRtmNKQ4JA3H+od+t1vEJVi2coMOGvftzXO4iEIALukciTNX/qJPJs5YHjkcJebYiNr+v4/upEKf7w/2TsNkl9fuN71Md7i9CkSZ+y2iECvFWAF8/6WHgjEURu79mLE9WDB7b+0C36bYc+u0X3xrALXgQQ6zvk3k5t99B4rz7E3uWMevoz2ZdRjYguIIKk5sHzx+oZAuFMABs81nmL2A9oxw9fPFZHiIh7D3VHKbC4i+9Nh9gMNYzONqBRw7m0+Fx3M2zHXjyDn0m2Y9NiH5pjTxQEJwJY79kCm8Z4YhTubl/9q/ooCaxO/A4LCS1Szy4CUKgCY1//Rhge8O5cVhS75wYywTnMkjhI69joH6kBPFAoAST6orthnb+sMHFhKeN3CsMcinfgCasEWHef3NzVP2oPcwCpJNujtmHIWwqsEtBoyNlcLUX0uNwV7GaFIW8psBJA4nZgHKDdr1L0p5G/m4Is0xjFIb/AAyIBLP5KivNHOMacwaG4MNTm1ByOEAmQxJ9dUZkuzxV5iC24xeQGzsmSSECmzbtPzP+PBUEmzKWWuGeoIgEk/ndN1ylz62FBoLmOaADXH+EImQDhIUnmlLJWgrXUvBk6MW+eCbIXEELfdG1xCLi+A7O/15jdCErwDTXLhGUu5RGwbLARYGTXx8eWjRhzkQnQZgK+SvEdFgSNG8HaK3c7JRIguZhrjW0sCLJEIEDHIAB4Z7ruE2RUgLZw/TUc4S0BJF6/YkGQaGEuGZxDdTkUruHMOEABEuXjbcwZ4/L5ummslrlHqyIB7GO1EPYqh5p96VBCqk5T90nVi+KAC+NVqsVzuow5IX+3wgPjYOaXqlsJGNbBZW6jO6RS2RPMCbY6pY/4M6wEjNVAYrT9Ex1aoGJs7esDcfcDKlWFobBNCigff5Qbo4rAoq8t55IhdcpCAgqkoEmsn1ZhD/IKte10CmEleuezQRI9uReghMaF22iRlDWIaNvpFB2QbiAAztkgnQDxGb45/Rw3LpRhE1jn63wapOQqDx+bIRDOBOTileEvyy1Nsgl/b/2pn8RQCX4GLZ6PwY6KGjGyenhcEtIg0aUfFXdncNmayue+FWSOMkmkd0VLL74urFkiqEnKmQQGZ2YJzqjKfMH1RC6pTSo5nM/fuUbzhkrw3ExJErZjE/UihJAQ3CXGjUqkPxwMLUyBhOFLQnBJ7OWJOitoXIgOWlyfXLKtT4DT+K5PA9VMfYITeKlEGPJYhE6DuvyF+4coWz3XFnVxlYQoBEwm5dLU5Il84d9QNNqbqgDHIiEaAbcnNiKjxifLKrCJcpyGX5gWPv2uWUmITsBtTMgAt8mPW+anrPyAi69cfaKJvBvR32+pENPzOHuYlYRSCagKLiSw8TQ1bS7FwYhDF5lYxVqak6FCEjTemy4v1dGYhQRu5zsy/WYpbMA0Ji6ZbMIP9HWgMhwuQlfLCiussMLC4QPMzxqZr/7ycAAAAABJRU5ErkJggg==);
+    background-size: 3.2rem;
+    background-position: center;
+    background-repeat: no-repeat;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+.sr-only {
+    overflow: hidden;
+    position: absolute;
+    top: auto;
+    left: auto;
+    width: .1rem;
+    height: .1rem;
+    margin: 0;
+    padding: 0;
+    color: transparent;
+    background: transparent;
+    border: 0 none;
+    clip: rect(.1rem,.1rem,.1rem,.1rem);
+}
+/* media queries for main search wrap */
+@media only screen and (max-width: 960px) {
+    .main-wrap .main-search-wrap {
+        padding: 2.4rem;
+    }
+}
+@media only screen and (max-width: 960px) {
+    .main-wrap .main-search-wrap .main-search-inner {
+        width: 100%;
+        margin: 0;
+        padding: 1.6rem 2.4rem;
+        border-radius: 1.6rem;
+    }
+}
+@media only screen and (max-width: 960px) {
+    .main-wrap .main-search-wrap .input-wrap {
+        position: relative;
+        width: 100%;
+    }
+}
+@media only screen and (max-width: 960px) {
+    .main-wrap .main-search-wrap .input-wrap .v-input, .main-wrap .main-search-wrap .input-wrap .v-input__control {
+        width: 100%;
+        background-color: #fff !important;
+        border-radius: 100rem;
+    }
+}
+@media only screen and (max-width: 960px) {
+    .v-input--density-default:not(.v-autocomplete--multiple), .v-field--variant-solo, .v-field--variant-filled {
+        --v-input-control-height: 3.9rem;
+        --v-input-padding-top: .1rem;
+    }
+}
+@media only screen and (max-width: 960px) {
+    .main-wrap .main-search-wrap .input-wrap .v-btn.btn-search {
+        right: 2.4rem;
+    }
+}
+@media only screen and (max-width: 960px) {
+    .v-btn.v-btn--size-default {
+        --v-btn-size: 1.2rem;
+        --v-btn-height: 3.2rem;
+        padding: 0 .8rem;
+    }
+}
+@media only screen and (max-width: 960px) {
+    .v-btn.btn-search {
+        width: 2.4rem;
+        height: 2.4rem;
+        background-size: 2.4rem;
+    }
+}
