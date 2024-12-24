@@ -429,7 +429,6 @@ const movePage = (code) => {
 }
 const submitForm = async () => {
     const { valid } = await memPsnIdentVerfForm.value.validate()
-    alert('hi');
 
     if (valid) {
         //emit 호출

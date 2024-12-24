@@ -2,7 +2,8 @@
 <script setup>
 
 import { reactive, ref } from 'vue'
-import { useRouter } from 'vue-router'
+import MainRcmSch from './MainRcmSch.vue'
+import MainCard from './MainCard.vue'
 const searchTerms = ref(null)
 const selectTerms = (terms) => {
     searchTerms.value = terms
@@ -19,11 +20,6 @@ const searchService = () => {
 </script>
 <template>
     <div class="main-wrap">
-        <div class="visual-layout-area">
-            <!-- PC전용 로그인 -->
-            <div class="my-login-wrap pc-wrap">
-            </div>
-        </div>
         <div class="main-search-wrap">
             <div class="main-search-inner">
                 <div class="input-wrap">
@@ -32,7 +28,7 @@ const searchService = () => {
                         clearable
                         color="primary"
                         hide-details="auto"
-                        placeholder="상품명, 해시태그"
+                        placeholder="병원 이름 검색"
                         variant="outlined"
                         @keypress.enter="searchService"
                     ></v-text-field>
@@ -41,13 +37,16 @@ const searchService = () => {
                     </v-btn>
                 </div>
                 <div class="hashtags">
-                    <!-- 추천 검색어 -
-                    <MainRcmSch @select-event="selectTerms" />-->
+                    <!-- 추천 검색어 -->
+                    <MainRcmSch @select-event="selectTerms" />
                 </div>
             </div>
         </div>
+        <div class="main-card-wrap">
+            <MainCard />
+        </div>
     </div>
 </template>
-<style scoped>
-@import '../styles/Main.css';
+<style scoped>  
+
 </style>

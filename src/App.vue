@@ -26,16 +26,7 @@ const displaySize = computed(() => {
 </script>
 
 <template>
-  <v-app>
-    <v-main container>
-      <div class="ly-inner">
-        <div class="sub-group my-page">
-      <myinpoChange></myinpoChange>>
-    </div>
-    </div>
-    </v-main>
-  </v-app>
-
+  <router-view />
 </template>
 
 <style scoped></style>

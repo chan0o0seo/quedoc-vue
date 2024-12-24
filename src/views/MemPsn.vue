@@ -1,6 +1,15 @@
 <!-- 회원가입-개인 -->
 <template>
+  <v-app>
+    <MainHeader />
+    <v-main class="container">
+      <div class="ly-inner">
     <component :is="currentTab.component" @next-event="nextTab"></component>
+</div>
+      </v-main>
+      <MainFooter />
+      <GoTopBtn />
+  </v-app>
 </template>
 
 <script setup>
@@ -8,6 +17,9 @@ import { shallowRef } from 'vue'
 import verfComponent from '../components/mem/psn/MemPsnIdentVerf.vue'
 import putComponent from '../components/mem/psn/MemPsnInfoPut.vue'
 import regCompComponent from '../components/mem/psn/MemPsnRegComp.vue'
+import MainHeader from '../components/MainHeader.vue'
+import MainFooter from '../components/MainFooter.vue'
+import GoTopBtn from '../components/GoTopBtn.vue'
 
 /**
  * 회원가입-개인 현재 탭
@@ -40,7 +52,6 @@ const tabs = [
 ]
 
 const nextTab = (ind, obj) => {
-    alert('what');
     currentTab.value = tabs[ind]
 }
 </script>

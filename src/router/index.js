@@ -2,13 +2,15 @@ import { createMemoryHistory, createRouter } from 'vue-router'
 
 import Login from '../components/appLogin.vue';
 import Main from '../components/appMain.vue';
-import MemType from '../components/MemType.vue';
-import MyinpoChange from '../components/myinpo.vue';
+import SignUp from '../views/SignUp.vue';
+import MainPage from '../components/appMain.vue'
+import MemPsn from '../views/MemPsn.vue';
 
 const routes = [
-  { path: '/', component : MyinpoChange },   
-  { path: '/login', component : Login}
-
+  { path: '/', component : MainPage},   
+  { path: '/login', component : Login , name: 'login'},
+  { path: '/mem', component : SignUp},
+  { path: '/memPsn', component : MemPsn , name: 'memPsn'},
 ]
 
 const router = createRouter({
