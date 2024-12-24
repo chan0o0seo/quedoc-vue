@@ -86,7 +86,7 @@ const handleMouseLeave = () => {
           <v-btn to="/my" size="x-small" title="MY" variant="text">
             <v-icon class="icon-my" />
           </v-btn>
-          <v-btn size="x-small" title="전체메뉴" variant="text">
+          <v-btn size="x-small" title="전체메뉴" variant="text" @click="allmenu = true">
             <v-icon class="icon-allmenu" />
           </v-btn>
         </div>
@@ -101,16 +101,22 @@ const handleMouseLeave = () => {
     <div class="allmenu">
       <div class="allmenu-inner">
         <div class="allmenu-head">
+
+          <div class="logo-title">
+                        <RouterLink
+                            ><img alt="" class="logo" src="../assets/logo/icon.png"
+                        /></RouterLink>
+                    </div>
           <div class="allmenu-login-wrap">
             <ul class="login-txt-box">
               <li>
-                <RouterLink>
+                <RouterLink class="menu-login">
                   <v-icon>icon-login</v-icon>
                   로그인
                 </RouterLink>
               </li>
               <li>
-                <RouterLink>
+                <RouterLink  class="menu-login">
                   <v-icon>icon-join</v-icon>
                   회원가입
                 </RouterLink>

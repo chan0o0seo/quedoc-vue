@@ -24,7 +24,7 @@
                 <strong class="card-title">QUEDOC</strong>
             </div>
             <v-icon class="card-icon ico-main-ad"></v-icon>
-            <span class="card-text">대기열을 보고가면 끝!</span>
+            <span class="card-text">대기열만 보고가면 끝!</span>
             <v-icon>icon-card-arrow</v-icon>
         </v-btn>
         <v-btn class="card-box">
