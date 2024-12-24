@@ -11,19 +11,19 @@ const handleMouseLeave = () => {
 
 <template>
 
-  <header class="header">
+  <header class="header" >
     <div class="head-inner">
       <div class="out-login-wrap">
-        <button :to="{ name: 'main' }" class="btn-daram" type="button">Quedoc</button>
+        <button class="btn-daram" type="button" @click="$router.push('/')">Quedoc</button>
         <ul>
           <li>
             <RouterLink to="/login">로그인</RouterLink>
           </li>
           <li>
-            <RouterLink>회원가입</RouterLink>
+            <RouterLink to="/mem">회원가입</RouterLink>
           </li>
           <li>
-            <RouterLink>고객센터</RouterLink>
+            <RouterLink to="/">고객센터</RouterLink>
           </li>
         </ul>
       </div>

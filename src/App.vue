@@ -21,7 +21,7 @@ const movePage = (code) => {
 </script>
 
 <template>
-  <SingupView />
+  <router-view />
 </template>
 
 <style scoped>

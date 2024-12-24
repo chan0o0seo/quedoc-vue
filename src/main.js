@@ -1,4 +1,5 @@
 import { createApp } from 'vue'
+import './styles/Main.css'
 import './styles/MemPsn.css'
 import './styles/MemHonldentVerf.css'
 import './style.css'
