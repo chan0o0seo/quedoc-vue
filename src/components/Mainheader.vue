@@ -17,10 +17,10 @@ const handleMouseLeave = () => {
         <button class="btn-daram" type="button" @click="$router.push('/')">Quedoc</button>
         <ul>
           <li>
-            <RouterLink to="/login">로그인</RouterLink>
+            <RouterLink :to="{ name: 'login'}">로그인</RouterLink>
           </li>
           <li>
-            <RouterLink to="/mem">회원가입</RouterLink>
+            <RouterLink :to="{ name: 'memType'}">회원가입</RouterLink>
           </li>
           <li>
             <RouterLink to="/">고객센터</RouterLink>
@@ -43,13 +43,13 @@ const handleMouseLeave = () => {
                 <h2 class="title"><span class="title-link">소개</span></h2>
                 <ul class="dep1-list">
                   <li class="item">
-                    <RouterLink @click.stop="show = false">Quedoc 소개 </RouterLink>
+                    <RouterLink @click.stop="show = false" >Quedoc 소개 </RouterLink>
                   </li>
                   <li class="item">
-                    <RouterLink>인삿말 </RouterLink>
+                    <RouterLink a>인삿말 </RouterLink>
                   </li>
                   <li class="item">
-                    <RouterLink>만든이 </RouterLink>
+                    <RouterLink  @click.stop="show = false" :to="{ name: 'intro'}">만든이 </RouterLink>
                   </li>
                 </ul>
               </div>

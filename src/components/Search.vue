@@ -27,10 +27,23 @@
             </div>
             <!--// search -->
 
-
             <v-divider class="svc-divide" />
-
-
+            
+            <template style="display: block;">
+                <!-- 검색결과 - 있음 -->
+                <div class="service-list-area">
+                    <v-row>
+                            <v-col cols="12" md="6">
+                                <ServPdCtg  />
+                                
+                            </v-col>
+                            <v-col cols="12" md="6">
+                                <ServPdCtg  />
+                            </v-col>
+                    </v-row>
+                </div>
+                <!--// 검색결과 - 있음 -->
+                </template>
             <template style="display: block;">
                 <!-- 검색결과  - 없음 -->
                 <div class="search-result">
@@ -43,7 +56,7 @@
                         rounded="lg"
                         size="x-large"
                         variant="flat"
-                        @click="$router.push({ name: 'main' })"
+                        @click="$router.push({ name: 'home' })"
                         >메인
                     </v-btn>
                 </div>
@@ -60,6 +73,7 @@
 import { onMounted, reactive, ref } from 'vue'
 import MainRcmSch from './MainRcmSch.vue'
 import BasePupAlert from '../base/BasePupAlert.vue'
+import ServPdCtg from './serv/ServPdCtg.vue'
 
 //메인 팝업 정보 객체
 let srhPupAlertInfo = reactive({
@@ -82,5 +96,5 @@ const tempWord = ref('')
 </script>
 <style scoped>
 @import '../styles/searchView.css';
-
+@import '../styles/ServPdCtg.css';
 </style>

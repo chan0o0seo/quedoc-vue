@@ -7,26 +7,13 @@ import { useDisplay } from 'vuetify';
 import { computed, reactive } from 'vue';
 import myinpoChange from './components/myinpoChange.vue';
 import mypageMemberDel from './components/mypageMemberDel.vue';
-const { name } = useDisplay();
-const displaySize = computed(() => {
-  switch (name.value) {
-    case 'xs':
-      return 'xs';
-    case 'sm':
-      return 'sm';
-    case 'md':
-      return 'md';
-    case 'lg':
-      return 'lg';
-    case 'xl':
-      return 'xl';
-  }
-  return undefined;
-});
+import ServPdCtg from './components/serv/ServPdCtg.vue';
+import { RouterView } from 'vue-router';
+
 </script>
 
 <template>
-  <router-view />
+  <RouterView />
 </template>
 
 <style scoped></style>
