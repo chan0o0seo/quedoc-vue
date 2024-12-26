@@ -1,4 +1,3 @@
-
 <script setup>
 import mypage from './components/mypage.vue'
 import mypage2 from './components/mypage2.vue'
