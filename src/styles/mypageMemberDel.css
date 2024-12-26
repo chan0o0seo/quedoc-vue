@@ -108,6 +108,19 @@
     color: #fff !important;
     background-color: #356cff !important;
 }
+.my-page .my-info .member .form-box .check-wrap .agree-btn .v-btn .btn-arrow {
+    width: 2rem;
+    height: 2rem;
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAADlSURBVHgB7di7DcIwFIXhY2hQSBEigjxORmAENiFMwiqwASvQUSCq8OiMrwQdBZIfV5bOJ7lJk/vLhS0DREREVLimsxtZUDBFIBncAHu/1lVd43kfj8hogoicw9Cu7BYZBe/A6zGeZlVtjEH/+dTn3IngAOEjDloRUQKEVkS0AKERETVA5I6IHiByRiQJELkikgWIHBFJA0TqiOQBImVElgDxK2I2r89ykiNA1LvQH39zKFXjL3mLzrrvapd2QCk4vBYOr4XDa+HwWsoe3r8LaQ4f9S5kHHa362VAaTSfFomIiEjTG+b9ozhftIqVAAAAAElFTkSuQmCC);
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+.v-btn .v-icon {
+    --v-icon-size-multiplier: .8571428571;
+}
+
+
+
   /* @media 모음   */
   @media only screen and (max-width: 960px) {
     .my-page .my-info>.title {
@@ -175,4 +188,20 @@
         margin-left: .8rem;
     }
 }
-
+@media only screen and (max-width: 960px) {
+    .sub-group-mypage{
+        padding: 0 2.4rem;
+    }
+}
+@media only screen and (max-width: 960px) {
+    .my-page .my-info .member .form-box .check-wrap .agree-btn .v-btn .btn-arrow {
+        width: 1.6rem;
+        height: 1.6rem;
+    }
+}
+@media only screen and (max-width: 960px) {
+    .my-page .my-info .member .form-box .check-wrap {
+        display: block;
+        padding: 0;
+    }
+}

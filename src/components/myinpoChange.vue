@@ -23,7 +23,7 @@
                             <v-label>로그인아이디</v-label>
                         </div>
                         <div class="data-wrap">
-                            <span class="data">{{ memInfo.clnEmAr }}</span>
+                            <span class="data">test@test.com</span>
                         </div>
                     </div>
                     <div class="form-group">
@@ -31,7 +31,7 @@
                             <v-label>이름</v-label>
                         </div>
                         <div class="data-wrap">
-                            <span class="data">{{ memInfo.cusNm }}</span>
+                            <span class="data">test</span>
                         </div>
                     </div>
                     <div class="form-group">
@@ -127,6 +127,11 @@
 </template>
 
 <script>
+import { reactive } from 'vue'
+let IdentVerfInfo = reactive({
+    toggle: false,
+    text: ''
+})
 export default {
   data() {
     return {
@@ -145,7 +150,9 @@ export default {
       console.log('Form submitted');
     },
     identVerfPop() {
-      // Add your logic for identVerfPop here
+        console.log('IdentVerfInfo', IdentVerfInfo.toggle);
+        IdentVerfInfo.toggle = true
+        console.log('IdentVerfInfo', IdentVerfInfo.toggle);
     },
     checkedMktGe() {
       // Add your logic for checkedMktGe here

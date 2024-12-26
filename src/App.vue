@@ -1,4 +1,3 @@
-
 <script setup>
 import mypage from './components/mypage.vue'
 import mypage2 from './components/mypage2.vue'
@@ -7,6 +6,7 @@ import { useDisplay } from 'vuetify';
 import { computed, reactive } from 'vue';
 import myinpoChange from './components/myinpoChange.vue';
 import mypageMemberDel from './components/mypageMemberDel.vue';
+import mypgPwdUpdPop from './components/mypgPwdUpdPop.vue';
 const { name } = useDisplay();
 const displaySize = computed(() => {
   switch (name.value) {
@@ -26,7 +26,17 @@ const displaySize = computed(() => {
 </script>
 
 <template>
-  <router-view />
+  <v-app>
+    <v-main class=" container">
+      <div class=" ly-inner">
+        <div class="sub-group my-page">
+
+          <mypgPwdUpdPop></mypgPwdUpdPop>
+
+        </div>
+      </div>
+    </v-main>
+  </v-app>
 </template>
 
 <style scoped></style>
