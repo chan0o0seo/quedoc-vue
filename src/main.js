@@ -9,10 +9,13 @@ import './style.css'
 import App from './App.vue'
 import router from './router'
 import { createMetaManager } from 'vue-meta'
+import { createPinia } from 'pinia'
 import vuetify from './plugins/vuetify'
 
+const pinia = createPinia();
 const app = createApp(App);
 app.use(router);
+app.use(pinia);
 app.use(createMetaManager);
 app.use(vuetify)
 app.mount('#app')
