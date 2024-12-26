@@ -2,6 +2,7 @@
 <script setup>
 
 import { reactive, ref } from 'vue'
+import router from '../router'
 import MainRcmSch from './MainRcmSch.vue'
 import MainCard from './MainCard.vue'
 const searchTerms = ref(null)
@@ -9,13 +10,8 @@ const selectTerms = (terms) => {
     searchTerms.value = terms
 }   
 const searchService = () => {
-    if (!searchTerms.value) {
-        //검색어 미입력
-        mainPupAlertInfo.toggle = true
-    } else {
         //서비스 검색 호출
-        router.push({ name: 'search', state: { searchParams: { q: searchTerms.value } } })
-    }
+        router.push({ name: 'search' })
 }
 </script>
 <template>
