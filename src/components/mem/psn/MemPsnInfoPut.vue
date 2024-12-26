@@ -9,7 +9,7 @@
                 <ul>
                     <li class="complete"><i>1단계 본인인증</i></li>
                     <li class="current"><i>2단계 정보입력</i></li>
-                    <li><i>4단계 가입완료</i></li>
+                    <li><i>3단계 가입완료</i></li>
                 </ul>
                 <span class="blind">현재 2단계 진행중</span>
             </div>
@@ -153,15 +153,25 @@
 <script setup>
 import { onBeforeUnmount, onMounted, reactive, ref, toRef } from 'vue'
 import { useRouter } from 'vue-router'
+import useJoinPsnCusStore from '../../../stores/useJoinPsnCusStore'
 import BasePupAlert from '../../../base/BasePupAlert.vue'
 import validateUtil from '../../../utils/validateUtil'
 import messageUtil from '../../../utils/messageUtil'
+import commonUtil from '../../../utils/commonUtil'
+import api from '../../api/mem'
 
 //라우터 정보 객체
 const router = useRouter()
 
 //부모 컴포넌트 통신 객체
 const emits = defineEmits(['nextEvent'])
+
+
+//저장소 정보 객체 획득
+const joinPsnCusStore = useJoinPsnCusStore()
+
+//저장소 회원가입-개인 정보 객체 획득
+const joinPsnInfo = joinPsnCusStore.getJoinPsnCusStore()
 
 
 //폼 정보 객체
@@ -223,12 +233,19 @@ let BasePupAlertInfo = reactive({
  *
  * 이메일(아이디) 유효성 룰을 정의한다.
  */
+ const regexEm = /^[a-zA-Z0-9](\.?[a-zA-Z0-9_-])*$/;
 const validateEm = [
     console.log('validateEm'),
     (value) => {
         if (value) {
+            if(regexEm.test(value)===false) {
+                memInfoErrorObject['em'].errorMessage = '이메일 형식이 올바르지 않습니다.'
+                return false;
+
+            }else {
             memInfoErrorObject['em'].errorMessage = null
             return true
+            }
         } else {
             memInfoErrorObject['em'].errorMessage = '이메일주소는 필수 입력입니다.'
             return false
@@ -241,11 +258,19 @@ const validateEm = [
  *
  * 도메인 유효성 룰을 정의한다.
  */
+ const regexDns = /^(?!:\/\/)([a-zA-Z0-9]+(-[a-zA-Z0-9]+)*\.)+[a-zA-Z]{2,}$/;
 const validateDns = [
     (value) => {
         if (value) {
-            memInfoErrorObject['em'].errorMessage = null
+            if (regexDns.test(value) === false) {
+            
+                memInfoErrorObject['em'].errorMessage = '도메인명 형식이 올바르지 않습니다.'
+                return false;
+            }else{
+
+                memInfoErrorObject['em'].errorMessage = null
             return true
+            }
         } else {
             memInfoErrorObject['em'].errorMessage = '도메인명은 필수 입력입니다.'
             return false
@@ -284,11 +309,17 @@ const validateCtsn = [
  *
  * 비밀번호 유효성 룰을 정의한다.
  */
+ const regexPin = /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[!@#$%^&*()]).{8,20}$/;
 const pinRules = [
     (value) => {
         if (value) {
+            if(regexPin.test(value)===false) {
+                memInfoErrorObject['pin1'].errorMessage = '비밀번호는 형식이 올바르지않습니다.'
+                return false;
+            }else {
             memInfoErrorObject['pin1'].errorMessage = null
             return true
+            }
         } else {
             memInfoErrorObject['pin1'].errorMessage = '비밀번호를 입력해주세요.'
             return false
@@ -304,10 +335,18 @@ const pinRules = [
 const pinChkRules = [
     (value) => {
         if (value) {
-            memInfoErrorObject['pin2'].errorMessage = null
-            return true
+            console.log(value === memPsnInfoPutInfo.pin1)
+            if(value === memPsnInfoPutInfo.pin1) { 
+                memInfoErrorObject['pin2'].errorMessage = null
+                return true
+            }
+            else {
+            memInfoErrorObject['pin2'].errorMessage = '비밀번호가 일치하지 않습니다. 입력하신 비밀번호와 동일하게 입력해 주세요.'
+            return false
+
+            }
         } else {
-            memInfoErrorObject['pin2'].errorMessage = '비밀번호를 입력해주세요.'
+            memInfoErrorObject['pin2'].errorMessage = '비밀번호를 한번더 입력해주세요.'
             return false
         }
     }
@@ -378,21 +417,33 @@ const movePage = () => {
         BasePupAlertInfo.code = null
     }
 }
+const validationWithVerificationNumber = async () => {
+    let validation = true
+
+    //폼 아이템 검증 배열
+    const targets = ['em', 'dns','pin1', 'pin2']
+    //필수 입력 검증 여부
+    validation = await commonUtil.isRequiredInputValidation(memPsnInfoPutForm, targets, memInfoErrorObject)
+
+
+    return validation
+}
 /**
  * 비밀번호 및 비밀번호 확인 입력 이벤트
  *
  * 비밀번호 및 비밀번호 확인 입력 이벤트 리스너
  * 다음 버튼 활성화를 제어한다.
  */
- const submitBtnAct = () => {
-    if (memPsnInfoPutInfo.pin1.length >= 8 && memPsnInfoPutInfo.pin2.length >= 8) {
-        //다음 버튼 활성화
-        formCntrObj['submitBtn'].disabled = false
-    } else {
-        //다음 버튼 비활성화
-        formCntrObj['submitBtn'].disabled = true
-    }
+ const submitBtnAct = async () => {
+    const validation = await validationWithVerificationNumber();
+    console.log(validation);
+            if(validation) {
+                formCntrObj['submitBtn'].disabled = false;
+            } else {
+                formCntrObj['submitBtn'].disabled = true;
+            }
 }
+
 /**
  * 폼 서브밋
  *
@@ -401,6 +452,8 @@ const movePage = () => {
  */
 const submitForm = async () => {
 
+    const { valid } = await memPsnInfoPutForm.value.validate();
+    
     if (!validateUtil.password(memPsnInfoPutInfo.pin1)) {
         memInfoErrorObject['pin1'].errorMessage = messageUtil.getMessage('COM00003')
     }
@@ -409,7 +462,18 @@ const submitForm = async () => {
             '비밀번호가 일치하지 않습니다. 입력하신 비밀번호와 동일하게 입력해 주세요.'
     }
 
-    
+    if(valid) {
+          //1단계 내용 pinia 저장
+          joinPsnCusStore.setJoinPsnCusStore(commonUtil.updateObejctValue(joinPsnInfo, memPsnInfoPutInfo))
+
+            //pinia 초기화전 로그찍기
+const joinPsnInfoReq = joinPsnCusStore.getJoinPsnCusStore()
+
+console.log('joinPsnInfoReq', joinPsnInfoReq);
+
+//API: 회원가입(개인사용자)
+const data = await api.memPsnRegReq(joinPsnInfoReq)
+    }
     emits('nextEvent', 2)
     return false
 }
