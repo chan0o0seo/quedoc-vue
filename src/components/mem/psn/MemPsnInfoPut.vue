@@ -472,7 +472,7 @@ const joinPsnInfoReq = joinPsnCusStore.getJoinPsnCusStore()
 console.log('joinPsnInfoReq', joinPsnInfoReq);
 
 //API: 회원가입(개인사용자)
-const data = await api.memPsnRegReq(joinPsnInfoReq)
+// const data = await api.memPsnRegReq(joinPsnInfoReq)
     }
     emits('nextEvent', 2)
     return false

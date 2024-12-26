@@ -1,18 +1,16 @@
 
 
 <script setup>
-import Header from './MainHeader.vue'
-import Footer from './MainFooter.vue'
-import Main from './Main.vue'
-import GoTopBtn from './GoTopBtn.vue'
+import Header from '../components/MainHeader.vue'
+import Footer from '../components/MainFooter.vue'
+import GoTopBtn from '../components/GoTopBtn.vue'
 </script>
 
 <template>
   <v-app>
     <Header />
     <v-main class="main">
-        <Main />
-        
+        <router-view></router-view>
       </v-main>
       <Footer />
       <GoTopBtn />

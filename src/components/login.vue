@@ -60,7 +60,7 @@
           <v-btn block color="primary" rounded="lg" size="large" type="submit" variant="flat" > 로그인</v-btn>
       </v-form>
       <div class="link-wrap">
-        <RouterLink  class="txt-link">회원가입</RouterLink>
+        <RouterLink :to="{ name: 'memType'}" class="txt-link">회원가입</RouterLink>
         <RouterLink  class="txt-link">아이디 찾기·비밀번호 변경</RouterLink>
       </div>
   </div>

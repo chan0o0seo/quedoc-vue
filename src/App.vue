@@ -6,37 +6,13 @@ import { useDisplay } from 'vuetify';
 import { computed, reactive } from 'vue';
 import myinpoChange from './components/myinpoChange.vue';
 import mypageMemberDel from './components/mypageMemberDel.vue';
-import mypgPwdUpdPop from './components/mypgPwdUpdPop.vue';
-const { name } = useDisplay();
-const displaySize = computed(() => {
-  switch (name.value) {
-    case 'xs':
-      return 'xs';
-    case 'sm':
-      return 'sm';
-    case 'md':
-      return 'md';
-    case 'lg':
-      return 'lg';
-    case 'xl':
-      return 'xl';
-  }
-  return undefined;
-});
+import ServPdCtg from './components/serv/ServPdCtg.vue';
+import { RouterView } from 'vue-router';
+
 </script>
 
 <template>
-  <v-app>
-    <v-main class=" container">
-      <div class=" ly-inner">
-        <div class="sub-group my-page">
-
-          <mypgPwdUpdPop></mypgPwdUpdPop>
-
-        </div>
-      </div>
-    </v-main>
-  </v-app>
+  <RouterView />
 </template>
 
 <style scoped></style>

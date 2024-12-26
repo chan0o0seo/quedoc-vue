@@ -1,15 +1,6 @@
 <!-- 회원가입-개인 -->
 <template>
-  <v-app>
-    <MainHeader />
-    <v-main class="container">
-      <div class="ly-inner">
     <component :is="currentTab.component" @next-event="nextTab"></component>
-</div>
-      </v-main>
-      <MainFooter />
-      <GoTopBtn />
-  </v-app>
 </template>
 
 <script setup>
