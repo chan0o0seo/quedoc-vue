@@ -86,13 +86,7 @@ const submitForm = () => {
     }
 }
 
-/**
- * 컴포넌트 마운트
- *
- */
-onMounted(() => {
-    document.title = '회원가입'
-})
+
 </script>
 
 <style scoped>

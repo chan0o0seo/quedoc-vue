@@ -1,6 +1,6 @@
 <template>
     <div class="main-card-inner">
-        <v-btn class="card-box">
+        <v-btn @click = 'pop' class="card-box">
             <div class="title-area">
                 <span class="card-stit">편리한</span>
                 <strong class="card-title">QUEDOC</strong>
@@ -9,7 +9,7 @@
             <span class="card-text">병원예약을 손쉽게!</span>
             <v-icon>icon-card-arrow</v-icon>
         </v-btn>
-        <v-btn class="card-box">
+        <v-btn @click = 'pop' class="card-box">
             <div class="title-area">
                 <span class="card-stit">인기있는</span>
                 <strong class="card-title">QUEDOC</strong>
@@ -18,7 +18,7 @@
             <span class="card-text">내 주변 인기소아과 찾기</span>
             <v-icon>icon-card-arrow</v-icon>
         </v-btn>
-        <v-btn  class="card-box">
+        <v-btn @click = 'pop' class="card-box">
             <div class="title-area">
                 <span class="card-stit">스마트한</span>
                 <strong class="card-title">QUEDOC</strong>
@@ -27,16 +27,30 @@
             <span class="card-text">대기열만 보고가면 끝!</span>
             <v-icon>icon-card-arrow</v-icon>
         </v-btn>
-        <v-btn class="card-box">
+        <v-btn @click = 'pop' class="card-box">
             <div class="title-area">
                 <span class="card-stit">안심되는</span>
                 <strong class="card-title">QUEDOC</strong>
             </div>
-            <v-icon class="card-icon ico-main-api"></v-icon>
+            <v-icon  class="card-icon ico-main-api"></v-icon>
             <span class="card-text">생생한 리뷰로 걱정은 그만!</span>
             <v-icon>icon-card-arrow</v-icon>
         </v-btn>
     </div>
+    <BasePupAlert :dialog-info="basePupAlertInfo" />
 </template>
 <script setup>
+import { onMounted, reactive, ref } from 'vue';
+import BasePupAlert from '../base/BasePupAlert.vue';
+
+let basePupAlertInfo = reactive({
+    toggle: false,
+    text: '준비중입니다',
+    url: ''
+});
+
+const pop =  () => {
+    // 메인 카드 누르면 나옴
+            basePupAlertInfo.toggle = true;
+};
 </script>

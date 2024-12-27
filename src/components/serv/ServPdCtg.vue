@@ -2,6 +2,7 @@
     <v-card
         class="service-list cursor-pointer"
         variant="outlined"
+        @click="router.push({ name: 'serv' })"
     >
         <div class="top-area">
             <div class="category-title text-16">{{ prodInfo.productTypeNm }}</div>
@@ -123,7 +124,7 @@ const props = defineProps({
  * (추) 객체와 배열이 props로 전달되면, 자식 컴포넌트는 바인딩된 prop을 변경할 수는 없지만,
  * 객체 또는 배열의 중첩 속성을 변경할 수는 있습니다.
  */
-const updateFavoriteProduct = async (id) => {
+const updateFavoriteProduct =  () => {
     //로그인 여부
     if (true) {
         basePupAlertInfo.toggle = true

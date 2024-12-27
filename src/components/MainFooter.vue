@@ -1,13 +1,30 @@
 <script setup>
-import { reactive } from 'vue'
+
+import { ref,reactive,watch,computed } from 'vue'
+import useHeaderStore from '../stores/useHeaderStore'
 let basePupScrollObj = reactive({
     code: 'svUeGeDaBlue',
     title: 'DataBada이용약관',
     toggle: false
 })
+
+/* header display 상태관리 */
+const headerStore = useHeaderStore();
+
+const footer = computed(() => ({
+  'footer': !headerStore.state,
+  'footer off': headerStore.state,
+}));
+
+watch(
+  () => headerStore.state, // Pinia의 반응형 상태 감지
+  (newValue, oldValue) => {
+    console.log(`State changed from ${oldValue} to ${newValue}`);
+  }
+);
 </script>
 <template>
-    <v-footer class="footer">
+    <v-footer :class="footer">
         <div class="foot-inner">
             <div class="bottom-logo"><span class="sr-only">QUEDOC</span></div>
             <div class="addr-wrap">
@@ -30,4 +47,7 @@ let basePupScrollObj = reactive({
 </template>
 <style scoped>
 @import '../styles/footer.css';
+.off {
+    display: none;
+}
 </style>
