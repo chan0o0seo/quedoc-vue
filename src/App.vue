@@ -8,11 +8,14 @@ import myinpoChange from './components/myinpoChange.vue';
 import mypageMemberDel from './components/mypageMemberDel.vue';
 import ServPdCtg from './components/serv/ServPdCtg.vue';
 import { RouterView } from 'vue-router';
+import ServPdDetlCrd from './components/serv/ServPdDetlCrd.vue';
+import Serv from './components/serv/Serv.vue';
+import HDt from './components/serv/dt/hdt.vue';
 
 </script>
 
 <template>
-  <RouterView />
+  <RouterView/>
 </template>
 
 <style scoped></style>
