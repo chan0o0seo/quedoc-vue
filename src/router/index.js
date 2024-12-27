@@ -10,10 +10,11 @@ import Main from '../components/Main.vue';
 import MemType from '../components/MemType.vue';
 import MemPsn from '../views/MemPsn.vue';
 import Search from '../components/Search.vue';
-import Intro from '../components/intro/intro.vue';
 import Serv from '../components/serv/Serv.vue';
 import Reserv from '../components/reservation/reserv.vue';
 import Complete from '../components/reservation/reservComp.vue';
+import Mypage from '../components/mypage/mypage.vue';
+import Hi from '../components/intro/sayHi.vue';
 
 
 
@@ -26,8 +27,8 @@ const routes = createRouter({
       component: AppMain,
       children: [
         { path: '', component: () => Main, name: 'home' },
-        { path: 'intro', component: () => Intro, name: 'intro' },
-      { path: 'search', component: () => Search , name: 'search'}
+      { path: 'search', component: () => Search , name: 'search'},
+      { path: 'hi', component: () => Hi , name: 'hi'}
       ]
     },
     // main container -> inner
@@ -40,7 +41,8 @@ const routes = createRouter({
       { path: 'memPsn', component: () => MemPsn, name: 'memPsn' },
       { path: 'serv', component: () => Serv, name: 'serv' },
       { path: 'reserv', component: () => Reserv, name: 'reserv' },
-      { path: 'comp', component: () => Complete, name: 'comp' }
+      { path: 'comp', component: () => Complete, name: 'comp' },
+      { path: 'mypage', component: () => Mypage, name: 'mypage' }
     ]
   }
   

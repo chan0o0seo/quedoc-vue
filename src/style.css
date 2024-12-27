@@ -1008,3 +1008,6 @@ input, textarea, div[contenteditable=true], code {
   color: #98a2bc !important;
   background-color: #dee6f1 !important;
 }
+.off {
+  display: none;
+}

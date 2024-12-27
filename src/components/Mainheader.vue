@@ -1,5 +1,6 @@
 <script setup>
-import { ref,reactive } from 'vue'
+import { ref,reactive,watch,computed } from 'vue'
+import useHeaderStore from '../stores/useHeaderStore'
 const show = ref(false)
 const allmenu = ref(false)
 const handleMouseLeave = () => {
@@ -8,7 +9,8 @@ const handleMouseLeave = () => {
   }, 350)
 }
 
-
+/* header display 상태관리 */
+const headerStore = useHeaderStore();
 
 import BasePupAlert from '../base/BasePupAlert.vue';
 
@@ -17,16 +19,27 @@ let basePupAlertInfo = reactive({
     text: '준비중입니다',
     url: ''
 });
+const headerClass = computed(() => ({
+  'header': !headerStore.state,
+  'header off': headerStore.state,
+}));
 
 const pop =  () => {
     // 메인 카드 누르면 나옴
             basePupAlertInfo.toggle = true;
 };
+watch(
+  () => headerStore.state, // Pinia의 반응형 상태 감지
+  (newValue, oldValue) => {
+    console.log(`State changed from ${oldValue} to ${newValue}`);
+  }
+);
+
 </script>
 
 <template>
 
-  <header class="header" >
+  <header :class="headerClass" >
     <div class="head-inner">
       <div class="out-login-wrap">
         <button class="btn-daram" type="button" @click="$router.push({name: 'home'})">Quedoc</button>
@@ -61,10 +74,10 @@ const pop =  () => {
                     <RouterLink @click = 'pop' @click.stop="show = false" :to="{name:''}" >Quedoc 소개 </RouterLink>
                   </li>
                   <li class="item">
-                    <RouterLink   @click = 'pop' @click.stop="show = false" :to="{name:''}" >인삿말 </RouterLink>
+                    <RouterLink   @click.stop="show = false" :to="{name:''}" >인삿말 </RouterLink>
                   </li>
                   <li class="item">
-                    <RouterLink  @click.stop="show = false" :to="{ name: 'intro'}">만든이 </RouterLink>
+                    <RouterLink  @click.stop="show = false" :to="{ name: 'hi'}">만든이 </RouterLink>
                   </li>
                 </ul>
               </div>
@@ -98,7 +111,7 @@ const pop =  () => {
         </nav>
         <!-- util -->
         <div class="util-area">
-          <v-btn to="/my" size="x-small" title="MY" variant="text">
+          <v-btn to="/my" size="x-small" title="MY" variant="text" @click="$router.push({name:'mypage'})">
             <v-icon class="icon-my" />
           </v-btn>
           <v-btn size="x-small" title="전체메뉴" variant="text" @click="allmenu = true">
