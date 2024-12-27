@@ -8,11 +8,13 @@ import myinpoChange from './components/myinpoChange.vue';
 import mypageMemberDel from './components/mypageMemberDel.vue';
 import ServPdCtg from './components/serv/ServPdCtg.vue';
 import { RouterView } from 'vue-router';
+import SearchSetting from './components/SearchSetting.vue';
 
 </script>
 
 <template>
-  <RouterView />
+  
+   <RouterView></RouterView>
 </template>
 
 <style scoped></style>

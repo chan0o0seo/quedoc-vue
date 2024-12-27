@@ -5,6 +5,7 @@
                 <h4 class="sub-title">검색결과</h4>
             </div>
 
+            <SearchSetting />
             <!-- search -->
             <div class="search-wrap">
                 <div class="search-box">
@@ -74,7 +75,7 @@ import { onMounted, reactive, ref } from 'vue'
 import MainRcmSch from './MainRcmSch.vue'
 import BasePupAlert from '../base/BasePupAlert.vue'
 import ServPdCtg from './serv/ServPdCtg.vue'
-
+import SearchSetting from './SearchSetting.vue'
 //메인 팝업 정보 객체
 let srhPupAlertInfo = reactive({
     toggle: false,

@@ -6,6 +6,7 @@ import './styles/mypage.css'
 import './styles/mypageMemberDel.css'
 import './styles/myinpoChange.css'
 import './style.css'
+import './styles/SearchSetting.css'
 import App from './App.vue'
 import router from './router'
 import { createMetaManager } from 'vue-meta'
@@ -17,5 +18,5 @@ const app = createApp(App);
 app.use(router);
 app.use(pinia);
 app.use(createMetaManager);
-app.use(vuetify)
+app.use(vuetify);
 app.mount('#app')

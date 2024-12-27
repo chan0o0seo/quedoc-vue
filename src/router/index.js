@@ -14,7 +14,6 @@ import Search from '../components/Search.vue';
 import Intro from '../components/intro/intro.vue';
 
 
-
 const routes = createRouter({ 
   history: createWebHistory(), //createWebHistory(), -> for browser history
   routes: [
