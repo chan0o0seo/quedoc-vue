@@ -1,11 +1,12 @@
 <template>
+    <div class ="sub-group my-page">
     <div class="sub-title-area">
         <h4 class="sub-title">MY</h4>
     </div>
     <div class="my-case-info">
         <div class="case-member">
             <p class="member-title">
-                <span>????</span
+                <span>테스트</span
                 >님 안녕하세요!
             </p>
 
@@ -46,7 +47,7 @@
         </div>
         
         
-    </div>
+    </div></div>
     <v-divider class="svc-divide" />
     
     
@@ -168,6 +169,6 @@ router.beforeResolve((to, from) => {
 </script>
 
 <style scoped>
-@import '../styles/mypage.css';
+@import '../../styles/mypage.css'
 </style>
 

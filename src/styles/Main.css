@@ -101,6 +101,11 @@ html.v-overlay-scroll-blocked {
 .main-wrap .main-search-wrap .input-wrap .v-btn.btn-search {
     right: 3.2rem;
 }
+.main-wrap .main-search-wrap .input-wrap .v-btn.btn-search:hover {
+    background-color: inherit !important; /* 배경색 변화 제거 */
+  box-shadow: none !important; /* 그림자 변화 제거 */
+  color: inherit !important; /* 텍스트 색상 변화 제거 */
+}
 .main-wrap .main-search-wrap .v-theme--DefaultTheme .v-field__input {
     min-height: 5.6rem;
     padding-right: 8rem;
