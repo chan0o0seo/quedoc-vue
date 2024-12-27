@@ -17,7 +17,6 @@ import Mypage from '../components/mypage/mypage.vue';
 import Hi from '../components/intro/sayHi.vue';
 
 
-
 const routes = createRouter({ 
   history: createWebHistory(), //createWebHistory(), -> for browser history
   // main main
