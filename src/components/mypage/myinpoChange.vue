@@ -1,5 +1,6 @@
 <!-- 개인 회원정보 변경 -->
 <template>
+     <div class ="sub-group my-page">
     <v-form
         ref="memPsnInfoPutForm"
         autocomplete="off"
@@ -119,7 +120,7 @@
 
         <IdentVerf :dialog-info="IdentVerfInfo" @confirm-event="closeIdentVerfPop" />
     </v-form>
-
+    </div>
     <BasePupScroll :dialog-info="BasePupScrollObj" />
     <BasePupAlert :dialog-info="BasePupAlertInfo" @confirm-event="closeAlertPop" />
     <BasePupConfirm :dialog-info="BasePupConfirmInfo" @confirm-event="confirmEvent" @cancel-event="cancelEvent" />

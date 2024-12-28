@@ -1,5 +1,6 @@
 <!-- 개인 회원정보 조회 -->
 <template>
+     <div class ="sub-group my-page">
     <v-divider class="svc-divide" />
     <!-- 회원정보 -->
     <div class="my-info">
@@ -73,7 +74,7 @@
             <v-icon class="btn-arrow" />
         </v-btn>
     </div>
-
+</div>
     <pwdUpdPopComp :dialog-info="PwdUpdPopInfo" @confirm-event="closeUpdPop" />
     <pwdConfPopComponent :dialog-info="PwdConfPopCnclInfo" @confirm-event="closePwdConfCnclPop" />
     <pwdConfPopComponent :dialog-info="PwdConfPopChgInfo" @confirm-event="closePwdConfChgPop" />
@@ -81,8 +82,8 @@
 
 <script setup>
 import { onMounted, reactive, ref } from 'vue'
-
-
+import pwdUpdPopComp from '../../components/mypage/info/pwdPop.vue'
+import pwdConfPopComponent from '../../components/mypage/info/pwdCon.vue'
 
 
 //회원정보
@@ -93,7 +94,7 @@ const mktGeTxt = ref('')
 
 
 
-/**
+const emits = defineEmits(['nextEvent'])
  
 
 //비밀번호변경 팝업 정보 객체

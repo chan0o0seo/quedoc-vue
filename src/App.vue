@@ -2,7 +2,10 @@
 import { useDisplay } from 'vuetify';
 import { computed, reactive } from 'vue';
 import { RouterView } from 'vue-router';
-import SayHi from './components/intro/sayHi.vue';
+import PwdPop from './components/mypage/info/pwdPop.vue';
+import PwdCon from './components/mypage/info/pwdCon.vue';
+import MyPg from './components/mypage/MyPg.vue';
+import MyReview from './components/mypage/myReview.vue';
 
 </script>
 
@@ -10,4 +13,5 @@ import SayHi from './components/intro/sayHi.vue';
   <RouterView/>
 </template>
 
-<style scoped></style>
+<style scoped>
+</style>
