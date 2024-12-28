@@ -28,23 +28,9 @@
             </div>
             <!--// search -->
 
-            <v-divider class="svc-divide" />
-            
-            <template style="display: block;">
-                <!-- 검색결과 - 있음 -->
-                <div class="service-list-area">
-                    <v-row>
-                            <v-col cols="12" md="6">
                                 <ServPdCtg  />
                                 
-                            </v-col>
-                            <v-col cols="12" md="6">
-                                <ServPdCtg  />
-                            </v-col>
-                    </v-row>
-                </div>
                 <!--// 검색결과 - 있음 -->
-                </template>
             <template style="display: block;">
                 <!-- 검색결과  - 없음 -->
                 <div class="search-result">

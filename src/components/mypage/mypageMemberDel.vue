@@ -77,12 +77,15 @@ export default {
   methods: {
     mveForm() {
       // Your method implementation
+      this.$router.back();
     },
     submitForm() {
       // Your method implementation
+      this.$router.push({ name: 'home' });
     },
     movePage() {
       // Your method implementation
+      this.$router.back();
     }
   }
 };

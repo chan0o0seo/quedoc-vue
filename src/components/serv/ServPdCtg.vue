@@ -1,4 +1,9 @@
 <template>
+    
+    <v-divider class="svc-divide" />
+    <div class="service-list-area" style="margin-top: 3rem;">
+        <v-row>
+            <v-col cols="12" md="6">
     <v-card
         class="service-list cursor-pointer"
         variant="outlined"
@@ -56,6 +61,10 @@
             </template>
         </div>
     </v-card>
+    
+</v-col>
+        </v-row>
+    </div>
     <!-- 팝업 -->
     <BasePupAlert :dialog-info="basePupAlertInfo" />
 </template>
@@ -136,10 +145,12 @@ const updateFavoriteProduct =  () => {
 
 </script>
 <style scoped>
+
 img {
     display: block;
 }
 img, fieldset {
     border: 0;
 }
+
 </style>

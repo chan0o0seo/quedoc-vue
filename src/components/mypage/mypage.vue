@@ -1,4 +1,5 @@
 <template>
+    
     <div class ="sub-group my-page">
     <div class="sub-title-area">
         <h4 class="sub-title">MY</h4>
@@ -41,21 +42,17 @@
             </v-col>
         </v-row>
     </div>
-    <div class="total-area">
-        <div class="total">
-            총&nbsp; <span>{??}건</span>
-        </div>
-        
-        
-    </div></div>
-    <v-divider class="svc-divide" />
-    
-    
+                                <RouterView/>
+    </div>
+    <BasePupAlert :dialog-info="basePupAlertInfo" />
 </template>
 
 <script setup>
 import { inject, onMounted, reactive, ref } from 'vue'
-import { useRouter } from 'vue-router'
+import { RouterView, useRouter } from 'vue-router'
+import mypage2 from './mypage2.vue';
+import MyPg from './MyPg.vue';
+import BasePupAlert from '../../base/BasePupAlert.vue';
 
 //라우터 정보 객체
 const router = useRouter()
@@ -66,31 +63,40 @@ const memInfo = ref({})
 //메뉴 설정
 const items = ref([
     {
-        link: { name: 'mypgAre' },
+        link: { name: 'mypage' },
         icon: 'my-contract',
         text: 'MY예약',
         select: ''
     },
     {
-        link: { name: 'mypgTarmkt' },
+        link: { name: 'myRv' },
         icon: 'my-target',
         text: 'MY리뷰',
         select: ''
     },
     {
-        link: { name: 'mypgProd' },
+        link: { name: 'fvHospital' },
         icon: 'my-wishlist',
         text: '관심병원',
         select: ''
     },
     {
-        link: { name: 'mypgQna' },
+        link: { name: 'home' },
         icon: 'my-qa',
         text: 'MY문의',
         select: ''
-    },
+    }
 ])
 
+let basePupAlertInfo = reactive({
+    toggle: false,
+    text: '준비중입니다',
+    url: ''
+});
+const pop =  () => {
+    // 메인 카드 누르면 나옴
+            basePupAlertInfo.toggle = true;
+};
 /**
  * 메뉴 선택 처리
  */
@@ -102,12 +108,6 @@ const handelMenuSelection = (ele) => {
             item.select = ''
         }
     })
-
-    //MY타겟마케팅 상세일 경우 MY타겟마케팅 선택처리
-    if (ele.name === 'mypgTarmktDetl') {
-        const index = items.value.findIndex((item) => item.link.name === 'mypgTarmkt')
-        items.value[index].select = 'selected'
-    }
 }
 
 /**
@@ -117,10 +117,16 @@ const handelMenuSelection = (ele) => {
  * 2. 선택된 메뉴 페이지로 이동한다.
  */
 const movePage = (ele) => {
+    if(ele.text == 'MY문의') {
+        pop();
+    }
+    else {
+    console.log(ele.link);
     //메뉴 선택 처리
     handelMenuSelection(ele.link)
     //페이지 이동
     router.push(ele.link)
+    }
 }
 
 /**
@@ -135,14 +141,8 @@ const movePage = (ele) => {
  *         반려사용자는 개인회원과 동일하게 처리한다.
  */
 const moveInfoUpd = () => {
-    if (memInfo.value.dbsnCusApvScd !== 'R') {
-        //승인
-        router.push({ name: 'mypgInfo' })
-    } else {
-        //그 외 상태
-        basePupAlertInfo.text = '운영자의 승인이 대기중인 상태에서는 개인정보를 변경하실 수 없습니다.'
-        basePupAlertInfo.toggle = true
-    }
+    
+    router.push({ name: 'changeInfo' })
 }
 
 
@@ -169,6 +169,7 @@ router.beforeResolve((to, from) => {
 </script>
 
 <style scoped>
-@import '../../styles/mypage.css'
+@import '../../styles/mypage.css';
+
 </style>
 
